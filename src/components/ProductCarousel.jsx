@@ -16,24 +16,19 @@ const ProductCarousel = ({ hidden }) => {
     carouselRef.current.scrollLeft -= carouselRef.current.children[0].offsetWidth + 30;
   }
 
-  // Adjusts visibility of carousel buttons based on scroll position
   function handleScroll() {
-    const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
-    const currentScrollLeft = carouselRef.current.scrollLeft;
+    const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
+    const currentScroll = carouselRef.current.scrollLeft;
 
-    // Adjusting visibility of next button based on scroll position
-    /* If (currentScrollLeft === maxScrollLeft) check is added, 
-    the nextBtn element doesn't properly hide on Samsung mobile devices. */
-    if (currentScrollLeft < maxScrollLeft) {
-      nextBtnRef.current.style.display = 'initial'; // Show next button when not scrolled to maximum width 
+    if (Math.abs(currentScroll - maxScroll) < 1) {
+      nextBtnRef.current.style.display = 'none'; // Hide next button when scrolled to maximum width 
     }
-    else {
-      nextBtnRef.current.style.display = 'none'; // Hide next button when scrolled to maximum width
+    else if (currentScroll < maxScroll) {
+      nextBtnRef.current.style.display = 'initial'; // Show next button when not scrolled to maximum width
     } 
 
-    // Adjusting visibility of previous button based on scroll position
-    if (currentScrollLeft === 0) {
-        prevBtnRef.current.style.display = 'none'; // Hide previous button when scrolled to initial width
+    if (currentScroll === 0) {
+      prevBtnRef.current.style.display = 'none'; // Hide previous button when scrolled to initial width
     } 
     else {
       prevBtnRef.current.style.display = 'initial'; // Show previous button when not scrolled to initial width
