@@ -1,8 +1,11 @@
 import '../styles/notFound.css';
 import { Link } from "react-router-dom";
 import ProductCarousel from "../components/ProductCarousel";
+import useFetch from '../hooks/useFetch';
 
 const NotFound = () => {
+  const { data: products, loading, error } = useFetch('/data/products.json');
+
   return ( 
     <main className="main-not-found">
       <header className="not-found-header">
@@ -15,7 +18,11 @@ const NotFound = () => {
           <h2 className="not-found-carousel__title">Popular picks</h2>
           <Link to="/jackets" className="slide-in-and-back underline fixed-height not-found-carousel__link">View all</Link>
         </div>
-        <ProductCarousel />
+        <ProductCarousel 
+          products={products}
+          loading={loading}
+          error={error} 
+        />
       </section>
     </main>
   );

@@ -1,0 +1,270 @@
+{
+  "products": [
+   {
+    "id": "be8337c8-4555-4647-a9e3-16d7e42ec0ce",
+    "title": "IH/Simmons Bilt C3 Style Jacket",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 806,
+    "description": "One of our favourite jacket builds from Simmons Bilt. A 15mm sheepskin, aviator-style jacket, his Spirit Racing x Simmons Bilt collaboration jacket uses the highest quality materials and hardware and is built by one of the top sheepskin makers in the world.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/u13hDE5.jpg",
+        "small": "https://i.imgur.com/5hro1Uh.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/YlUJ5D8.jpg",
+        "small": "https://i.imgur.com/jvaX5fF.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/Vor16N2.jpg",
+        "small": "https://i.imgur.com/UEqjFhn.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/uJU30aR.jpg",
+        "small": "https://i.imgur.com/qP2Hpnd.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/1tvQ6II.jpg",
+        "small": "https://i.imgur.com/kRl6HqR.jpg"
+      }
+    ]
+   },
+   {
+    "id": "520bc950-04b2-464f-a49c-612c15940219",
+    "title": "21oz Selvedge Denim Type III - Indigo",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 390,
+    "description": "A classic returns! Our original Type III jacket, made from our signature 21oz indigo Japanese selvedge denim. No modifications, just true to the original with a shorter body length and no side pockets.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/HXtyQrU.jpg",
+        "small": "https://i.imgur.com/aXdYqBT.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/2bOv57A.jpg",
+        "small": "https://i.imgur.com/AJ6TrLf.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/yTfBgJn.jpg",
+        "small": "https://i.imgur.com/dycHZFF.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/d3kjyQ3.jpg",
+        "small": "https://i.imgur.com/jEjAilW.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/DO7owEG.jpg",
+        "small": "https://i.imgur.com/FSMJaCy.jpg"
+      }
+    ]
+   },
+   {
+    "id": "df25c1c8-3c92-425e-aa29-385ed1e1f0c9",
+    "title": "Built Reversible Bomber Jacket",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 370,
+    "description": "Reversible bomber jacket in durable water-repellent nylon with a quilted lining. Relaxed fit featuring a sleeve pocket, exterior flap pockets and interior welt pockets. Embroidery at the lower front.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/HruhIKb.jpg",
+        "small": "https://i.imgur.com/5eYWCpg.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/cEpv3uW.jpg",
+        "small": "https://i.imgur.com/ANCetW7.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/ygsI8HP.jpg",
+        "small": "https://i.imgur.com/BUnDvGV.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/cD3m8Og.jpg",
+        "small": "https://i.imgur.com/et5DwPY.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/jW8W8V2.jpg",
+        "small": "https://i.imgur.com/vEkfKeA.jpg"
+      }
+    ]
+   },
+   {
+    "id": "a272d2ac-ee80-4511-b441-2692328529dc",
+    "title": "Spirit Racing x Simmons Bilt Flight Jacket",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 1299,
+    "description": "The Type ANJ-4 shearling sheepskin flying jacket was first introduced in 1943 and worn by the USAAF and the US Navy (replacing the Type-B-3). This Spirit Racing x Simmons Bilt collaboration jacket uses the highest quality materials and hardware, and is built by one of the top sheepskin artisans in the world. Whilst staying faithful to the original in appearance, for this iteration Haraki San has subtly tweaked the overall design to offer a greatly improved fit when compared to other reproductions.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/y0YXZyc.jpg",
+        "small": "https://i.imgur.com/HHXFLrk.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/OP492Wd.jpg",
+        "small": "https://i.imgur.com/bX9VanZ.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/XgaabGt.jpg",
+        "small": "https://i.imgur.com/ClSPF2x.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/c94ABqT.jpg",
+        "small": "https://i.imgur.com/JvC0s15.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/cXeFrQ8.jpg",
+        "small": "https://i.imgur.com/OWPBuES.jpg"
+      }
+    ]
+   },
+   {
+    "id": "e6093f1d-270e-4b15-9372-c8db5c0433e3",
+    "title": "21oz Denim Rider's Jacket - Indigo",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 358,
+    "description": "Our traditional rider's jacket, constructed from 21oz Japanese indigo denim. Designed for a streamlined fit to increase wind resistance - this cut features zippered cuffs, a snap fastening collar and a tack button secured hem, with action bi-swing shoulders for increased manoeuvrability.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/GGjscrH.jpg",
+        "small": "https://i.imgur.com/JJAHMiI.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/DmzU1mV.jpg",
+        "small": "https://i.imgur.com/M3Ay6v2.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/T9TocbV.jpg",
+        "small": "https://i.imgur.com/YKzkbWa.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/BelEXAG.jpg",
+        "small": "https://i.imgur.com/vxpNJvC.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/P7h3NWK.jpg",
+        "small": "https://i.imgur.com/kZBGTlo.jpg"
+      }
+    ]
+   },
+   {
+    "id": "521d48e3-1c80-4ac8-ac1f-149ffe896010",
+    "title": "21oz Denim Rider's Jacket - Superblack Non-Fade",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 403,
+    "description": "Our traditional rider's jacket, constructed from 21oz 'Superblack' non-fade Japanese denim. Designed for a streamlined fit to increase wind resistance - this cut features zippered cuffs, a snap fastening collar and a tack button secured hem, with action bi-swing shoulders for increased manoeuvrability.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/5KV4s1e.jpg",
+        "small": "https://i.imgur.com/HekgFca.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/dO81724.jpg",
+        "small": "https://i.imgur.com/n2h9Gjg.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/AimLTaB.jpg",
+        "small": "https://i.imgur.com/keolA9U.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/VkLglDf.jpg",
+        "small": "https://i.imgur.com/n1jV11H.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/ecze7fy.jpg",
+        "small": "https://i.imgur.com/W20e1n7.jpg"
+      }
+    ]
+   },
+   {
+    "id": "880da005-38f0-4142-858d-b8aafa9ccdd5",
+    "title": "Split Steer Modified Type III Jacket - Brown",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 1120,
+    "description": "Modified Type III Jacket, made from soft split steer hide rough-out leather by FourSpeed, Japan, to Haraki's design. Modified with a slightly longer body than the original Levi's version, and with the addition of two external hand-warmer pockets, two internal snap fastened \"gun\" pockets and a cotton twill lining.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/mPPGaju.jpg",
+        "small": "https://i.imgur.com/OqYyfrU.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/QC8MCsY.jpg",
+        "small": "https://i.imgur.com/vpt8Ksa.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/SNYWhUe.jpg",
+        "small": "https://i.imgur.com/6vwyLcd.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/HFOVbXB.jpg",
+        "small": "https://i.imgur.com/kEWmYzp.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/8qkcplJ.jpg",
+        "small": "https://i.imgur.com/p7TE58V.jpg"
+      }
+    ]
+   },
+   {
+    "id": "0ebd0c26-cd1f-4796-b6c2-9522112b2640",
+    "title": "Japanese Horsehide Flight Jacket",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 2423,
+    "description": "This biker jacket was made in Japan from medium weight leather and features hand finished details for a vintage inspired look.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/A1tHLYB.jpeg",
+        "small": "https://i.imgur.com/ghemusl.jpeg"
+      },
+      {
+        "regular": "https://i.imgur.com/upaTjBh.jpg",
+        "small": "https://i.imgur.com/00tM4Hl.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/cUXCv8a.jpg",
+        "small": "https://i.imgur.com/0EXpI6L.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/zsfLWCe.jpg",
+        "small": "https://i.imgur.com/7C3sCn0.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/44dqzVo.jpg",
+        "small": "https://i.imgur.com/hgD9bgQ.jpg"
+      }
+    ]
+   },
+   {
+    "id": "5e71b6a0-4895-4f83-a470-1602d66bd5d9",
+    "title": "Locklear leather biker jacket",
+    "type": "clothing",
+    "category": "jackets",
+    "price": 1630,
+    "description": "This biker jacket was made in Italy from medium weight leather and features hand finished details for a vintage inspired look.",
+    "images": [
+      {
+        "regular": "https://i.imgur.com/2YWpVXA.jpg",
+        "small": "https://i.imgur.com/QZSd2Co.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/JXGTIZG.jpg",
+        "small": "https://i.imgur.com/JX4VbTP.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/xOfVDR9.jpg",
+        "small": "https://i.imgur.com/dGiay1R.jpg"
+      },
+      {
+        "regular": "https://i.imgur.com/2ZzcqCw.jpg",
+        "small": "https://i.imgur.com/Ncb98ZJ.jpg"
+      }
+    ]
+   }
+  ]
+}

@@ -3,14 +3,21 @@ import { Link } from 'react-router-dom';
 import { gridProductsImagesData } from '../../data/gridProductsImagesData';
 import ProductCarousel from "../../components/ProductCarousel";
 import HeroSlider from "./components/HeroSlider";
+import useFetch from '../../hooks/useFetch';
 
 const Home = () => {
+  const { data: products, loading, error } = useFetch('/data/products.json');
+
   return ( 
     <main className="main-home">
       <HeroSlider />
       <div className="main-home__content">
         <section className="main-home__carousel-section">
-          <ProductCarousel />
+          <ProductCarousel
+            products={products}
+            loading={loading}
+            error={error} 
+          />
           <div className="main-home__carousel-section-btn-container">
             <Link to="/jackets" className="arrow-btn-v1 arrow-btn main-home__carousel-section-btn">View all</Link>
           </div>

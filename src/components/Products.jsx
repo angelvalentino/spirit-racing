@@ -1,11 +1,10 @@
 import { useRef } from "react";
-import useFetch from "../hooks/useFetch";
 import ProductsList from "./ProductsList";
 import SkeletonProductsList from "../skeletons/SkeletonProductsList";
 import ErrorMessage from "./ErrorMessage";
 
-const Products = ({ url, carousel, addClass }) => {
-  const { data: jackets, loading, error } = useFetch(url);
+const Products = ({ carousel, addClass, products, loading, error, limit }) => {
+  const displayedProducts = (products && limit) ? products?.slice(0, 6) : products;
   const shuffleRef = useRef(false); // Ref to track whether the array has been shuffled
 
   function shuffleArray(array) {
@@ -20,8 +19,8 @@ const Products = ({ url, carousel, addClass }) => {
 
   /* Conditionally shuffle the jackets array if it exists and if it hasn't been 
   shuffled yet and also if it isn't the products collection list grid */
-  if (jackets && addClass !== 'products-list-grid' && !shuffleRef.current) {
-    shuffleArray(jackets);
+  if (displayedProducts && addClass !== 'products-list-grid' && !shuffleRef.current) {
+    shuffleArray(displayedProducts);
     shuffleRef.current = true;
   };
  
@@ -29,7 +28,7 @@ const Products = ({ url, carousel, addClass }) => {
     <>
       { error && <ErrorMessage error={error} carousel={carousel} addClass={addClass} /> }
       { loading && <SkeletonProductsList carousel={carousel} addClass={addClass} /> }
-      { (!loading && !error) && <ProductsList data={jackets} carousel={carousel} addClass={addClass} /> }
+      { (!loading && !error) && <ProductsList products={displayedProducts} carousel={carousel} addClass={addClass} /> }
     </>
   );
 }

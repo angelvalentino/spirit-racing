@@ -3,7 +3,7 @@ import ProductImgsList from "./ProductImgsList";
 import ProductThumbsList from "./ProductThumbsList";
 import useSwipe from "../../../hooks/useSwipe";
 
-const ProductPreviewSlider = ({ data: jacket }) => {
+const ProductPreviewSlider = ({ product }) => {
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
   const carouselRef = useRef(null);
@@ -104,7 +104,7 @@ const ProductPreviewSlider = ({ data: jacket }) => {
     <section aria-roledescription="carousel" className="product-slider">
       <ul role="tablist" className="product-slider__vertical-thumbs-container">
         <ProductThumbsList 
-          jacket={jacket}
+          product={product}
           imgIndex={imgIndex}
           className={"product-slider__vertical-thumb"}
           setImgIndex={setImgIndex}
@@ -116,7 +116,7 @@ const ProductPreviewSlider = ({ data: jacket }) => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <ProductImgsList jacket={jacket} imgIndex={imgIndex} />
+        <ProductImgsList product={product} imgIndex={imgIndex} />
       </div>
       <div className="slider-controls">
         <button aria-controls="slider-controls__carousel" ref={prevBtnRef} className="slider-controls__prev-btn" aria-label="Show previous image." onClick={slideLeft}>
@@ -126,7 +126,7 @@ const ProductPreviewSlider = ({ data: jacket }) => {
         </button>
         <ul id="slider-controls__carousel" role="tablist" ref={carouselRef} className="slider-controls__carousel" onScroll={handleScroll}>
           <ProductThumbsList 
-            jacket={jacket}
+            product={product}
             imgIndex={imgIndex}
             className={"slider-controls__carousel-img"}
             setImgIndex={setImgIndex}

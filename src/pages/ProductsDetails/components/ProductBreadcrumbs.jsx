@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductBreadcrumbs = ({ jacket }) => {
+const ProductBreadcrumbs = ({ product }) => {
   return (  
     <nav aria-label="Breadcrumbs">
       <ul className="product-breadcrumbs">
@@ -11,7 +11,7 @@ const ProductBreadcrumbs = ({ jacket }) => {
           <Link className="slide-bg-from-bottom fixed-height sienna-brown" to="/jackets">Jackets</Link>
         </li>
         <li aria-current="page">
-          <p className="product-breadcrumbs__current-page-product">{jacket.title}</p>
+          <p className="product-breadcrumbs__current-page-product">{product.title}</p>
         </li>
       </ul>
     </nav>

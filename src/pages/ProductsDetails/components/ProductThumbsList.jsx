@@ -1,7 +1,7 @@
-const ProductThumbsList = ({ jacket, imgIndex, className, setImgIndex }) => {
+const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
   return ( 
     <>
-      {jacket.images.map((img, i) => (
+      {product.images.map((img, i) => (
         <li role="presentation" key={img.small}>
             <img 
               role="tab"
@@ -12,7 +12,7 @@ const ProductThumbsList = ({ jacket, imgIndex, className, setImgIndex }) => {
               className={className}
               style={{ border: i === imgIndex ? '2px solid #000' : null }}
               src={img.small} 
-              alt={`${jacket.title} preview ${i + 1}`} 
+              alt={`${product.title} preview ${i + 1}`} 
               onClick={() => {
                 setImgIndex(i);
               }}

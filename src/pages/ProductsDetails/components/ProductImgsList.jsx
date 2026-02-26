@@ -1,7 +1,7 @@
-const ProductImgsList = ({jacket, imgIndex}) => {
+const ProductImgsList = ({ product, imgIndex }) => {
   return ( 
     <>
-      {jacket.images.map((img, i) => (
+      {product.images.map((img, i) => (
         <div 
           aria-roledescription="slide" 
           id={`product-preview-slider__item-${i + 1}`} 
@@ -12,10 +12,10 @@ const ProductImgsList = ({jacket, imgIndex}) => {
           style={{ translate: `${-100 * imgIndex}%` }}  
         >
           <img 
-            aria-label={`${i + 1} of ${jacket.images.length}`}
+            aria-label={`${i + 1} of ${product.images.length}`}
             className="product-image" 
             src={img.regular} 
-            alt={`${jacket.title} ${i + 1}`} 
+            alt={`${product.title} ${i + 1}`} 
           />
         </div>
       ))}

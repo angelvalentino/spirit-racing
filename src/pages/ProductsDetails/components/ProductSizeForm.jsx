@@ -5,7 +5,7 @@ import { availableSizes } from "../../../data/availableSizes";
 import { Link } from "react-router-dom";
 import SizeButton from "./SizeButton";
 
-const ProductSizeForm = ({ jacket: { id, title, price, images } }) => {
+const ProductSizeForm = ({ product: { id, title, price, images } }) => {
   const { addToCart } = useShoppingCart();
   const { openModal } = useModal();
   const [ selectedOption, setSelectedOption ] = useState('S');

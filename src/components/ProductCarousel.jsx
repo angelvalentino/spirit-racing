@@ -2,11 +2,10 @@ import '../styles/carousel.css';
 import { useRef } from "react";
 import Products from "./Products";
 
-const ProductCarousel = ({ hidden }) => {
+const ProductCarousel = ({ hidden, products, loading, error }) => {
   const carouselRef = useRef(null);
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
-  const productsUrl = 'https://my-json-server.typicode.com/AngelValentino/racing-spirit-test-api/products?_page=1&_limit=6';
 
   function slideRight() {
     carouselRef.current.scrollLeft += carouselRef.current.children[0].offsetWidth + 30;
@@ -43,7 +42,13 @@ const ProductCarousel = ({ hidden }) => {
         </svg>
       </button>
       <ul id="carousel__slider" ref={carouselRef} className="carousel__slider" onScroll={handleScroll}>
-        <Products url={productsUrl} carousel={true}/>
+        <Products
+          products={products} 
+          loading={loading}
+          error={error}
+          limit={true}
+          carousel={true}
+        />
       </ul>
       <button aria-controls="carousel__slider" aria-label="Show next image." ref={nextBtnRef} className="carousel__btn carousel__next-btn" onClick={slideRight}>
         <svg aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

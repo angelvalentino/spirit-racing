@@ -1,17 +1,18 @@
-const SortBy = ({ setUrl, productsUrl }) => {
+const SortBy = ({ setProducts, products }) => {
   function handleSelect(e) {
+    let sorted = [...products];
+
     switch (e.target.value) {
       case 'featured':
-        // Set URL to default products URL (reset sorting)
-        setUrl(productsUrl);
+        setProducts(sorted);
         break;
       case 'price-descending':
-        // Set URL to sort products by descending price
-        setUrl(productsUrl + '?_sort=price&_order=desc');
+        sorted.sort((a, b) => b.price - a.price);
+        setProducts(sorted);
         break;
       case 'price-ascending':
-        // Set URL to sort products by ascending price
-        setUrl(productsUrl + '?_sort=price');
+        sorted.sort((a, b) => a.price - b.price);
+        setProducts(sorted);
         break;
     }
   }
