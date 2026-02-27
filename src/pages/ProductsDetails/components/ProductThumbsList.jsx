@@ -1,8 +1,11 @@
 const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
   return ( 
     <>
-      {product.images.map((img, i) => (
-        <li role="presentation" key={img.small}>
+      {product.images.map(({ url, alt }, i) => (
+        <li 
+          role="presentation" 
+          key={url}
+        >
             <img 
               role="tab"
               aria-controls={`product-preview-slider__item-${i + 1}`}
@@ -11,7 +14,7 @@ const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
               tabIndex="0" 
               className={className}
               style={{ border: i === imgIndex ? '2px solid #000' : null }}
-              src={img.small} 
+              src={url + '-s.jpg'} 
               alt={`${product.title} preview ${i + 1}`} 
               onClick={() => {
                 setImgIndex(i);
