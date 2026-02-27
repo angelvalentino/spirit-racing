@@ -16,7 +16,7 @@ const ProductSizeForm = ({ product: { id, title, price, images } }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addToCart(id, title, price, images[0].small, selectedOption);
+    addToCart(id, title, price, images[0].url + '-s.jpg', selectedOption);
     openModal('cart');
   }
 

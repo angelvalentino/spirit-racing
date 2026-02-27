@@ -4,18 +4,17 @@ const ProductImgsList = ({ product, imgIndex }) => {
       {product.images.map(({ url, alt }, i) => (
         <div 
           aria-roledescription="slide" 
-          id={`product-preview-slider__item-${i + 1}`} 
+          aria-hidden={imgIndex !== i} 
           role="tabpanel" 
           className="product-image-container" 
+          id={`product-preview-slider__item-${i + 1}`} 
           key={url} 
-          aria-hidden={imgIndex !== i} 
           style={{ translate: `${-100 * imgIndex}%` }}  
         >
           <img 
-            aria-label={`${i + 1} of ${product.images.length}`}
             className="product-image" 
             src={url + '-m.jpg'} 
-            alt={`${product.title} ${i + 1}`} 
+            alt={`${alt} (image ${i + 1} of ${product.images.length})`} 
           />
         </div>
       ))}

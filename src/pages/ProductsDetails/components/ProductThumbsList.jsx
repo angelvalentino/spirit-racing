@@ -8,14 +8,15 @@ const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
         >
             <img 
               role="tab"
-              aria-controls={`product-preview-slider__item-${i + 1}`}
               aria-selected={i === imgIndex}
-              aria-label={`Show image ${i + 1}.`}
-              tabIndex="0" 
+              aria-controls={`product-preview-slider__item-${i + 1}`}
+              aria-label={`Thumbnail of: ${alt} (image ${i + 1} of ${product.images.length})`}
               className={className}
               style={{ border: i === imgIndex ? '2px solid #000' : null }}
               src={url + '-s.jpg'} 
-              alt={`${product.title} preview ${i + 1}`} 
+              alt='' 
+              tabIndex="0"
+              draggable="false"
               onClick={() => {
                 setImgIndex(i);
               }}
