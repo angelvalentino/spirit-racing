@@ -10,17 +10,15 @@ const HeroImgs = ({ imgIndex, heroBtn, heroTitle, heroVideoRef, autoPlay }) => {
     if (!video) return;
 
     const onVideoReady = () => {
-      if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA){
+      if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA){
         setVideoReady(true);
       }
     };
 
-    video.addEventListener('canplaythrough', () => {
-      onVideoReady();
-    }, { once: true });
+    video.addEventListener('canplaythrough', onVideoReady);
 
     // Extra guard to remove load event listener
-    return () => video.removeEventListener('canplaythrough', handleCanPlayThrough);
+    return () => video.removeEventListener('canplaythrough', onVideoReady);
   }, []);
 
   return ( 
