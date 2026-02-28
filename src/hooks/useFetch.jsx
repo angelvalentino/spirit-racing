@@ -21,7 +21,7 @@ const useFetch = url => {
     setLoading(true);
     setError(null);
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       // Fetch data from the given URL
       fetch(url, { signal: abortCont.signal })
         .then(res => {
@@ -47,7 +47,10 @@ const useFetch = url => {
         });
     }, 800); // simulate 800ms latency only for first fetch
  
-    return () => abortCont.abort();
+    return () => {
+      clearTimeout(timeoutId); // cancel the simulated delay
+      abortCont.abort(); // abort fetch if it already started
+    };
 
   }, [url]);
     
