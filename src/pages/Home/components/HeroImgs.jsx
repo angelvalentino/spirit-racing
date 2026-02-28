@@ -41,7 +41,7 @@ const HeroImgs = ({ imgIndex, heroBtn, heroTitle, heroVideoRef, autoPlay }) => {
             ? <>
                 {!videoReady && (
                   <img
-                    src="/assets/videos/placeholder.png"
+                    src="/assets/videos/placeholder.jpg"
                     alt=""
                     aria-hidden="true"
                     className="hero-slider__main-img pulse"
