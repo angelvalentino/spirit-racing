@@ -1,7 +1,27 @@
+import { useState, useEffect } from "react";
 import HeroText from "./HeroText";
 import { heroImgsData } from "../../../data/heroImgsData";
 
 const HeroImgs = ({ imgIndex, heroBtn, heroTitle, heroVideoRef, autoPlay }) => {
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    const onVideoReady = () => {
+      if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA){
+        setVideoReady(true);
+      }
+    };
+
+    video.addEventListener('canplaythrough', () => {
+      onVideoReady();
+    }, { once: true });
+
+    // Extra guard to remove load event listener
+    return () => video.removeEventListener('canplaythrough', handleCanPlayThrough);
+  }, []);
 
   return ( 
     <>
@@ -19,10 +39,20 @@ const HeroImgs = ({ imgIndex, heroBtn, heroTitle, heroVideoRef, autoPlay }) => {
         >
           {i === 0 
             ? <>
+                {!videoReady && (
+                  <img
+                    src="/assets/videos/placeholder.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="hero-slider__main-img pulse"
+                  />
+                )}
+
                 <video className="hero-slider__main-img" autoPlay muted loop ref={heroVideoRef}>
                   <source src={url} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                
                 <p className="visually-hidden">{alt}</p>
               </>
             : <img 

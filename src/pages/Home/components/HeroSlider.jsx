@@ -17,7 +17,8 @@ const HeroSlider = () => {
         // User tabbed back into the page
         setAutoPlay(true);
         setImgIndex(0);
-      } else {
+      } 
+      else {
         // User tabbed out from the page
         setAutoPlay(false);
         heroVideoRef.current.currentTime = 0; // Reset video playback

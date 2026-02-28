@@ -31,6 +31,19 @@
   display: block;
 }
 
+.hero-slider__main-img.pulse {
+  animation: pulse 2s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+
 .hero-slider__main-img-displaced {
   object-position: 25%;
 }
