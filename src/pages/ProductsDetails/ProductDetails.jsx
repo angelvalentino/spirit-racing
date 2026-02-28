@@ -25,7 +25,7 @@ const ProductDetails = () => {
         <h2 className="product-details-recommended__title">You may also like</h2>
         {/* Adding a key forces the component re-render on route change */}
         <Products 
-          key={id + 1} 
+          key={`products-${id}`} 
           addClass="recommended-products-list-grid" 
           products={products}
           loading={loading}
@@ -33,7 +33,7 @@ const ProductDetails = () => {
           limit={true}
         />
         <ProductCarousel 
-          key={id} 
+          key={`carousel-${id}`} 
           hidden={true} 
           products={products}
           loading={loading}
