@@ -19,7 +19,7 @@ const ProductCarousel = ({ hidden, products, loading, error }) => {
     const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
     const currentScroll = carouselRef.current.scrollLeft;
 
-    if (Math.abs(currentScroll - maxScroll) < 1) {
+    if (Math.abs(currentScroll - maxScroll) <= 1) {
       nextBtnRef.current.style.display = 'none'; // Hide next button when scrolled to maximum width 
     }
     else if (currentScroll < maxScroll) {
