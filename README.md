@@ -83,7 +83,7 @@ To create an optimized build for production and preview it locally:
 
 ### Current Limitations
 
-While the project follows modern development best practices, it currently uses a mock back-end via JSON server to simulate API calls. The shopping cart does not have authentication mechanisms in place for user data, and there is no checkout functionality. The project simulates the UI and is designed for demonstration and educational purposes, not for production use.
+While the project follows modern development best practices, it currently uses a mock back-end via JSON to simulate API calls. The shopping cart does not have authentication mechanisms in place for user data, and there is no checkout functionality. The project simulates the UI and is designed for demonstration and educational purposes, not for production use.
 
 📌 Notwithstanding, there are no current plans to update this project, as it's considered to already fulfill its purpose in a clear, accessible, and responsive way.
 
