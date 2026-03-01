@@ -29,6 +29,20 @@ const HeroSlider = () => {
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
+  function handleKeydown(e) {
+    const actions = {
+      ArrowRight: () => showNextImage(),
+      ArrowLeft: () => showPrevImage(),
+      Home: () => setImgIndex(0),
+      End: () => setImgIndex(heroImgsData.length - 1)
+    }
+
+    if (actions[e.key]) {
+      e.preventDefault();
+      actions[e.key]();
+    }
+  }
+
   function showPrevImage() {
     setImgIndex(index => index === 0 ? heroImgsData.length - 1 : index - 1);
   }
@@ -108,7 +122,7 @@ const HeroSlider = () => {
           />
         </div>
         <div className="hero-slider__navigation-btns-container">
-          <NavigationBtns imgIndex={imgIndex} setImgIndex={setImgIndex} />
+          <NavigationBtns imgIndex={imgIndex} setImgIndex={setImgIndex} handleKeydown={handleKeydown}/>
         </div>
         <div className="hero-slider__arrow-btns-container">
           <button aria-label="Show previous image." className="hero-slider__prev-btn" onClick={showPrevImage}>

@@ -1,4 +1,14 @@
+import { useEffect, useRef } from "react";
+
 const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
+  const thumbsRef = useRef([]);
+
+  useEffect(() => {
+    if (thumbsRef.current[imgIndex]) {
+      thumbsRef.current[imgIndex].focus();
+    }
+  }, [imgIndex]);
+
   return ( 
     <>
       {product.images.map(({ url, alt }, i) => (
@@ -7,6 +17,7 @@ const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
           key={url}
         >
             <img 
+              ref={lm => thumbsRef.current[i] = lm}
               role="tab"
               aria-selected={i === imgIndex}
               aria-controls={`product-preview-slider__item-${i + 1}`}
@@ -15,13 +26,10 @@ const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
               style={{ border: i === imgIndex ? '2px solid #000' : null }}
               src={url + '-s.jpg'} 
               alt='' 
-              tabIndex="0"
+              tabIndex={i === imgIndex ? '0' : '-1'}
               draggable="false"
               onClick={() => {
                 setImgIndex(i);
-              }}
-              onKeyDown={e => {
-                if (e.key === 'Enter') setImgIndex(i);
               }}
             />
         </li>

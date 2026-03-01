@@ -8,6 +8,7 @@ const ProductPreviewSlider = ({ product }) => {
   const nextBtnRef = useRef(null);
   const carouselRef = useRef(null);
   const [ imgIndex, setImgIndex ] = useState(0);
+  const lastScrollLeft = useRef(0);
 
   // Manage arrow buttons visibility on imgIndex change
   useEffect(() => {
@@ -37,8 +38,24 @@ const ProductPreviewSlider = ({ product }) => {
     }
   }, [imgIndex])
 
-  // Track the last scroll position, initially set to 0 if the carouselRef is not defined
-  let lastScrollLeft = carouselRef.current ? carouselRef.current.scrollLeft : 0;
+
+  function handleKeydown(e) {
+    const orientation = e.currentTarget.getAttribute('aria-orientation') === 'vertical' ? 'vertical' : 'horizontal';
+    const nextKey = orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown';
+    const prevKey = orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp';
+
+    const actions = {
+      [nextKey]: () => showNextImage(true),
+      [prevKey]: () => showPrevImage(true),
+      Home: () => setImgIndex(0),
+      End: () => setImgIndex(carouselRef.current.children.length - 1),
+    };
+
+    if (actions[e.key]) {
+      e.preventDefault();
+      actions[e.key]();
+    }
+  }
 
   // Manage arrow buttons visibility on scroll
   function handleScroll() {
@@ -46,17 +63,17 @@ const ProductPreviewSlider = ({ product }) => {
     // const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
     
     // Scrolling to the right
-    if (currentScrollLeft > lastScrollLeft) {
+    if (currentScrollLeft > lastScrollLeft.current) {
       prevBtnRef.current.style.display = 'block'; // Show previous button
     } 
     // Scrolling to the left
-    else if (currentScrollLeft < lastScrollLeft) {
+    else if (currentScrollLeft < lastScrollLeft.current) {
       nextBtnRef.current.style.display = 'block'; // Show next button
     }
 
     // Scrolling to the left, reached the initial width and the user is on the first image
     if (
-      currentScrollLeft < lastScrollLeft && 
+      currentScrollLeft < lastScrollLeft.current && 
       currentScrollLeft === 0 && 
       imgIndex === 0
     ) {
@@ -64,7 +81,7 @@ const ProductPreviewSlider = ({ product }) => {
     } 
     // Scrolling to the right, reached the maximum width and the user is on the last image
     else if (
-      currentScrollLeft > lastScrollLeft && 
+      currentScrollLeft > lastScrollLeft.current && 
       /* If (currentScrollLeft === maxScrollLeft &&) check is added, 
       the nextBtn doesn't properly hide on Samsung mobile devices */
       imgIndex === carouselRef.current.children.length - 1
@@ -72,17 +89,19 @@ const ProductPreviewSlider = ({ product }) => {
       nextBtnRef.current.style.display = 'none'; // Hide next button
     }
 
-    lastScrollLeft = currentScrollLeft;
+    lastScrollLeft.current = currentScrollLeft;
   }
 
-  function showNextImage() {
-    // Update the image index to show the next image, but ensure it doesn't exceed the last image from the carousel
-    setImgIndex(index => index === carouselRef.current.children.length - 1 ? carouselRef.current.children.length - 1 : index + 1);
+  function showNextImage(loop) {
+    loop 
+      ? setImgIndex(index => index === carouselRef.current.children.length - 1 ? 0 : index + 1)
+      : setImgIndex(index => index === carouselRef.current.children.length - 1 ? carouselRef.current.children.length - 1 : index + 1);
   }
 
-  function showPrevImage() {
-    // Update the image index to show the previous image, ensuring it doesn't go below zero
-    setImgIndex(index => index === 0 ? 0 : index - 1);
+  function showPrevImage(loop) {
+    loop 
+      ? setImgIndex(index => index === 0 ? carouselRef.current.children.length - 1 : index - 1)
+      : setImgIndex(index => index === 0 ? 0 : index - 1);
   }
 
   function slideLeft() {
@@ -102,7 +121,7 @@ const ProductPreviewSlider = ({ product }) => {
 
   return ( 
     <section aria-roledescription="carousel" className="product-slider">
-      <ul role="tablist" className="product-slider__vertical-thumbs-container">
+      <ul aria-orientation="vertical" role="tablist" className="product-slider__vertical-thumbs-container" onKeyDown={handleKeydown}>
         <ProductThumbsList 
           product={product}
           imgIndex={imgIndex}
@@ -124,7 +143,7 @@ const ProductPreviewSlider = ({ product }) => {
             <path fill="currentColor" d="M380.6 81.7c7.9 15.8 1.5 35-14.3 42.9L103.6 256 366.3 387.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3l-320-160C6.8 279.2 0 268.1 0 256s6.8-23.2 17.7-28.6l320-160c15.8-7.9 35-1.5 42.9 14.3z" />
           </svg>
         </button>
-        <ul id="slider-controls__carousel" role="tablist" ref={carouselRef} className="slider-controls__carousel" onScroll={handleScroll}>
+        <ul id="slider-controls__carousel" role="tablist" ref={carouselRef} className="slider-controls__carousel" onScroll={handleScroll} onKeyDown={handleKeydown}>
           <ProductThumbsList 
             product={product}
             imgIndex={imgIndex}
