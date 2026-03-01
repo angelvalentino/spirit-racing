@@ -1,13 +1,14 @@
 import { useEffect, useRef } from "react";
 
-const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
+const ProductThumbsList = ({ product, imgIndex, className, setImgIndex, keyboardNavRef }) => {
   const thumbsRef = useRef([]);
 
   useEffect(() => {
-    if (thumbsRef.current[imgIndex]) {
+    if (keyboardNavRef.current && thumbsRef.current[imgIndex]) {
       thumbsRef.current[imgIndex].focus();
+      keyboardNavRef.current = false;
     }
-  }, [imgIndex]);
+  }, [imgIndex, keyboardNavRef]);
 
   return ( 
     <>
@@ -23,7 +24,7 @@ const ProductThumbsList = ({ product, imgIndex, className, setImgIndex }) => {
               aria-controls={`product-preview-slider__item-${i + 1}`}
               aria-label={`Thumbnail of: ${alt} (image ${i + 1} of ${product.images.length})`}
               className={className}
-              style={{ border: i === imgIndex ? '2px solid #000' : null }}
+              style={{ border: i === imgIndex ? '2px solid #000' : '2px solid transparent' }}
               src={url + '-s.jpg'} 
               alt='' 
               tabIndex={i === imgIndex ? '0' : '-1'}

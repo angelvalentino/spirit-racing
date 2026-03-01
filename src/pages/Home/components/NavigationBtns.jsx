@@ -1,14 +1,15 @@
 import { heroImgsData } from "../../../data/heroImgsData";
 import { useEffect, useRef } from "react";
 
-const NavigationBtns = ({ imgIndex, setImgIndex, handleKeydown}) => {
+const NavigationBtns = ({ imgIndex, setImgIndex, handleKeydown, keyboardNavRef}) => {
   const btnsRef = useRef([]);
 
   useEffect(() => {
-    if (btnsRef.current[imgIndex]) {
+    if (keyboardNavRef.current && btnsRef.current[imgIndex]) {
       btnsRef.current[imgIndex].focus();
+      keyboardNavRef.current = false;
     }
-  }, [imgIndex]);
+  }, [imgIndex, keyboardNavRef]);
 
   return ( 
     <> 

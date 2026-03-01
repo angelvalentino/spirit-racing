@@ -9,6 +9,7 @@ const HeroSlider = () => {
   const [ isProgressBarStyled, setIsProgressBarStyled ] = useState(false);
   const [ autoPlay, setAutoPlay ] = useState(true);
   const heroVideoRef = useRef(null);
+  const keyboardNavRef = useRef(false);
 
   // AutoPlay stops when the user tabs out of the page and restarts when they come back.
   useEffect(() => {
@@ -39,6 +40,7 @@ const HeroSlider = () => {
 
     if (actions[e.key]) {
       e.preventDefault();
+      keyboardNavRef.current = true;
       actions[e.key]();
     }
   }
@@ -122,7 +124,12 @@ const HeroSlider = () => {
           />
         </div>
         <div className="hero-slider__navigation-btns-container">
-          <NavigationBtns imgIndex={imgIndex} setImgIndex={setImgIndex} handleKeydown={handleKeydown}/>
+          <NavigationBtns 
+            imgIndex={imgIndex} 
+            setImgIndex={setImgIndex} 
+            handleKeydown={handleKeydown}
+            keyboardNavRef={keyboardNavRef}
+          />
         </div>
         <div className="hero-slider__arrow-btns-container">
           <button aria-label="Show previous image." className="hero-slider__prev-btn" onClick={showPrevImage}>

@@ -9,6 +9,7 @@ const ProductPreviewSlider = ({ product }) => {
   const carouselRef = useRef(null);
   const [ imgIndex, setImgIndex ] = useState(0);
   const lastScrollLeft = useRef(0);
+  const keyboardNavRef = useRef(false);
 
   // Manage arrow buttons visibility on imgIndex change
   useEffect(() => {
@@ -53,6 +54,7 @@ const ProductPreviewSlider = ({ product }) => {
 
     if (actions[e.key]) {
       e.preventDefault();
+      keyboardNavRef.current = true;
       actions[e.key]();
     }
   }
@@ -127,6 +129,7 @@ const ProductPreviewSlider = ({ product }) => {
           imgIndex={imgIndex}
           className={"product-slider__vertical-thumb"}
           setImgIndex={setImgIndex}
+          keyboardNavRef={keyboardNavRef}
         />
       </ul>
       <div 
@@ -149,6 +152,7 @@ const ProductPreviewSlider = ({ product }) => {
             imgIndex={imgIndex}
             className={"slider-controls__carousel-img"}
             setImgIndex={setImgIndex}
+            keyboardNavRef={keyboardNavRef}
           />
         </ul>
         <button aria-controls="slider-controls__carousel" ref={nextBtnRef} className="slider-controls__next-btn" aria-label="Show next image." onClick={slideRight}>
