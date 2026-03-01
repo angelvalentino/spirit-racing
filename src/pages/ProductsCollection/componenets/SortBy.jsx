@@ -1,22 +1,6 @@
-const SortBy = ({ setProducts, products }) => {
-  function handleSelect(e) {
-    let sorted = [...products];
+const SortBy = ({ setSortOption }) => {
+  const handleSelect = e => setSortOption(e.target.value);
 
-    switch (e.target.value) {
-      case 'featured':
-        setProducts(sorted);
-        break;
-      case 'price-descending':
-        sorted.sort((a, b) => b.price - a.price);
-        setProducts(sorted);
-        break;
-      case 'price-ascending':
-        sorted.sort((a, b) => a.price - b.price);
-        setProducts(sorted);
-        break;
-    }
-  }
- 
   return ( 
     <div className="sort-by">
       <label className="visually-hidden" htmlFor="sort-by__select">Sort products.</label>

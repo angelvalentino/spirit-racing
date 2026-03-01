@@ -3,17 +3,16 @@ import { useEffect, useState } from "react";
 const cache = {};
 
 const useFetch = url => {
-  const [ data, setData ] = useState(null);
-  const [ loading, setLoading ] = useState(true);
+  const cachedData = cache[url] || null;
+  const hasCache = Boolean(cachedData);
+
+  const [ data, setData ] = useState(cachedData);
+  const [ loading, setLoading ] = useState(!hasCache);
   const [ error, setError ] = useState(null);
 
   useEffect(() => {
     // Check if the data for the given URL is already in the cache
-    if (cache[url]) {
-      setData(cache[url]);
-      setLoading(false);
-      return;
-    }
+    if (cache[url]) return;
 
     // Create an AbortController to allow aborting the fetch request
     const abortCont = new AbortController();
