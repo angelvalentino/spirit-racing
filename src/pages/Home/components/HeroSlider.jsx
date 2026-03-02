@@ -9,7 +9,7 @@ const HeroSlider = () => {
   const [ isProgressBarStyled, setIsProgressBarStyled ] = useState(false);
   const [ autoPlay, setAutoPlay ] = useState(true);
   const heroVideoRef = useRef(null);
-  const keyboardNavRef = useRef(false);
+  const btnsRef = useRef([]);
 
   // AutoPlay stops when the user tabs out of the page and restarts when they come back.
   useEffect(() => {
@@ -34,23 +34,36 @@ const HeroSlider = () => {
     const actions = {
       ArrowRight: () => showNextImage(),
       ArrowLeft: () => showPrevImage(),
-      Home: () => setImgIndex(0),
-      End: () => setImgIndex(heroImgsData.length - 1)
+      Home: () => {
+        setImgIndex(0);
+        return 0;
+      },
+      End: () => {
+        const endIndex = heroImgsData.length - 1;
+        setImgIndex(endIndex);
+        return endIndex;
+      }
     }
 
     if (actions[e.key]) {
       e.preventDefault();
-      keyboardNavRef.current = true;
-      actions[e.key]();
+      const nextIndex = actions[e.key]();
+      btnsRef.current[nextIndex] && btnsRef.current[nextIndex].focus();
     }
   }
 
   function showPrevImage() {
-    setImgIndex(index => index === 0 ? heroImgsData.length - 1 : index - 1);
+    const prevIndex = imgIndex === 0 ? heroImgsData.length - 1 : imgIndex - 1;
+    setImgIndex(prevIndex);
+    
+    return prevIndex;
   }
 
   function showNextImage() {
-    setImgIndex(index => index === heroImgsData.length - 1 ? 0 : index + 1);
+    const nextIndex = imgIndex === heroImgsData.length - 1 ? 0 : imgIndex + 1;
+    setImgIndex(nextIndex);
+    
+    return nextIndex;
   }
 
   // Custom hook for swipe functionality
@@ -128,7 +141,7 @@ const HeroSlider = () => {
             imgIndex={imgIndex} 
             setImgIndex={setImgIndex} 
             handleKeydown={handleKeydown}
-            keyboardNavRef={keyboardNavRef}
+            btnsRef={btnsRef}
           />
         </div>
         <div className="hero-slider__arrow-btns-container">

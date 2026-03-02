@@ -1,16 +1,6 @@
 import { heroImgsData } from "../../../data/heroImgsData";
-import { useEffect, useRef } from "react";
 
-const NavigationBtns = ({ imgIndex, setImgIndex, handleKeydown, keyboardNavRef}) => {
-  const btnsRef = useRef([]);
-
-  useEffect(() => {
-    if (keyboardNavRef.current && btnsRef.current[imgIndex]) {
-      btnsRef.current[imgIndex].focus();
-      keyboardNavRef.current = false;
-    }
-  }, [imgIndex, keyboardNavRef]);
-
+const NavigationBtns = ({ imgIndex, setImgIndex, handleKeydown, btnsRef}) => {
   return ( 
     <> 
       <ul role="tablist" className="hero-slider__navigation-btns-list" onKeyDown={handleKeydown}>
